@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>three.js canvas - geometry - earth</title>
+    
+</head>
+<body>
+
+    <div id="container"></div>
+    
+    <canvas id="webglcanvas"></canvas>
+    
+    <!-- js 放后面，防止阻塞 html 下载 
+    这是相对路径
+    和 cdn 相比
+    静态资源是要放置到专门的静态资源服务器
+    node.js、java、php 动态程序 => 后端服务器 -->
+    <!-- <script src="./libs/three.min.js"></script> -->
+    <script src="https://cdn.bootcss.com/three.js/92/three.min.js"></script>
+    <script src="./libs/stats.min.js"></script>
+
+    <script>
+        // three.js
+        // 舞台 Scene
+        // 灯光 Light
+        // 相机 Camera
+        // 元素 mesh
+        // 按帧刷新 requestAnimationFrame
+        const container = document.querySelector('#container');
+        let canvas, stats, camera, scene, renderer, group;
+        let mouseX = 0, mouseY = 0;
+        let windowHalfX = window.innerWidth / 2;
+        let windowHalfY = window.innerHeight / 2;
+        console.log(windowHalfX, windowHalfY)
+
+        function init() {
+            canvas = document.getElementById('webglcanvas')
+            // 相机可视区夹角, 宽高比, 最近距离, 最远距离
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 1, 2000)
+            camera.position.z = 500 // 视距
+
+            // 场景
+            scene = new THREE.Scene()
+            scene.background = new THREE.Color(0xffffff)
+            // 分组
+            group = new THREE.Group()
+            scene.add(group)
+            // scene<-group<-mesh(材质)
+            // 地球的过程
+            const loader = new THREE.TextureLoader()
+            loader.load('./earth.jpg', function(texture) {
+                // 球体 (大小, 中心点)
+                const geometry = new THREE.SphereGeometry(200, 20, 20)
+                // 外层基础材质不考虑光线影响
+                const material = new THREE.MeshBasicMaterial({
+                    map: texture
+                })
+                // 物体
+                const mesh = new THREE.Mesh(geometry, material)
+                group.add(mesh)
+            })
+            
+            // 渲染器
+            renderer = new THREE.WebGLRenderer({
+                canvas: canvas,
+                antialias: true
+            })
+            renderer.setSize(window.innerWidth, window.innerHeight)
+            stats = new Stats()
+            container.appendChild(stats.dom)
+        }
+
+        function onWindowResize() {
+            windowHalfX = window.innerWidth / 2
+            windowHalfY = window.innerHeight / 2
+            // console.log(windowHalfX, windowHalfY)
+        }
+
+        function onDocumentMouseMove(event) {
+            // 基于左上角
+            // 鼠标相对于屏幕中心点的偏移量
+            mouseX = event.clientX - windowHalfX
+            mouseY = event.clientY - windowHalfY
+            console.log(mouseX, mouseY)
+        }
+
+        function animate() {
+            // 内置动态刷新帧
+            requestAnimationFrame(animate)
+            render()
+            stats.update()
+        }
+        // 开始渲染
+        function render() {
+            camera.position.x += (mouseX - camera.position.x) * 0.05
+            camera.position.y += (-mouseY - camera.position.y) * 0.05
+            camera.lookAt(scene.position)
+            // 自动旋转
+            group.rotation.y -= 0.005
+            renderer.render(scene, camera)
+        }
+
+        window.onload = function() {
+            init()
+            animate()
+            // resize 调整窗口大小
+            window.addEventListener('resize', onWindowResize, false)
+            // 鼠标监听
+            document.addEventListener('mousemove', onDocumentMouseMove, false)
+        }
+    </script>
+</body>
+</html>
