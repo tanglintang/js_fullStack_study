@@ -53,7 +53,7 @@
 	border-radius: 5px;
 	padding: 5rpx 20rpx;
 	font-size: 12pt;
-	margin-bottom: 10rpx;
+	margin-bottom: 30rpx;
 }
 
 .weui-btn:first-child {
@@ -61,7 +61,7 @@
 }
 
 .addForm .addForm-div .addForm-btn button {
-	margin-right: 15rpx;
+	margin: 15rpx;
 }
 
 .hide {

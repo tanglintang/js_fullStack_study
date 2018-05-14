@@ -14,7 +14,7 @@ Page({
 		// 界面状态要被 data 全面接管
 		addFormShow: false,
 		addText: '',
-		lists: []
+		lists: [],
 	},
 
 	curLists: [],
@@ -236,7 +236,8 @@ Page({
 		this.setData({
 			lists: temp,
 			curLists: temp,
-			addFormShow: false
+			addFormShow: false,
+			addText: ''
 		})
 
 		this.save()
@@ -268,15 +269,14 @@ Page({
 	},
 
 	changeTodo: function (e) {
-		if (this.data.status != 1) return
-		console.log(e)
+		// console.log(e)
 		const index = e.currentTarget.dataset.id
-		console.log(index)
+		// console.log(index)
 		const temp = this.data.lists
-		temp.forEach((item, i) => {
-			// console.log(item, i)
+		temp.forEach((item) => {
+			// console.log(item.id)
 			// return
-			if (i == index) {
+			if (item.id == index) {
 				if (item.status == '0') {
 					item.status = '1'
 					// 小程序API 弹出提示

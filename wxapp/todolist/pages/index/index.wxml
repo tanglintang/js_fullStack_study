@@ -31,7 +31,7 @@
 		<!-- <view class="item" wx:for="{{lists}}" wx:key="index"> -->
 		<view class="item" wx:for="{{curLists}}" wx:key="index">
 			<div class="content {{item.contStyle}}" data-id="{{index}}" bindtouchstart="touchS" bindtouchmove="touchM">
-				<icon class="icon-small" size="23" bindtap="changeTodo" data-id="{{index}}" type="{{item.status=='1'?'success':'circle'}}" />
+				<icon class="icon-small" size="23" bindtap="changeTodo" data-id="{{item.id}}" type="{{item.status=='1'?'success':'circle'}}" />
 				<!-- 默认每一项为一个 item -->
 				<text class="title {{item.status == 1 ? 'finished' : ''}}">{{item.title}}</text>
 				<text class="time">{{item.date}}</text>
