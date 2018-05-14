@@ -5,7 +5,7 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#e42d08",
     "navigationBarTitleText": "ToDoList",
     "navigationBarTextStyle":"black"
   }

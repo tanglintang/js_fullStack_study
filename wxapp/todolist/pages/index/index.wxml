@@ -30,12 +30,13 @@
 		<!-- wx:for="{{}}" for 指令 循环输出模板 -->
 		<!-- <view class="item" wx:for="{{lists}}" wx:key="index"> -->
 		<view class="item" wx:for="{{curLists}}" wx:key="index">
-			<div class="content">
-				<icon class="icon-small" size="23" bindtap="changeTodo" data-item="{{index}}" type="{{item.status=='1'?'success':'circle'}}" />
+			<div class="content {{item.contStyle}}" data-id="{{index}}" bindtouchstart="touchS" bindtouchmove="touchM">
+				<icon class="icon-small" size="23" bindtap="changeTodo" data-id="{{index}}" type="{{item.status=='1'?'success':'circle'}}" />
 				<!-- 默认每一项为一个 item -->
-				<text class="title">{{item.title}}</text>
+				<text class="title {{item.status == 1 ? 'finished' : ''}}">{{item.title}}</text>
 				<text class="time">{{item.date}}</text>
 			</div>
+			<button class="del mini-btn weui-btn" size="mini" type="warn" data-id="{{index}}" bindtap="deleteItem" >删除</button>
 		</view>
 	</scroll-view>
 
