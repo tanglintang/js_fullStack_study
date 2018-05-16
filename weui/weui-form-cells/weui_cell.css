@@ -1,0 +1,148 @@
+.weui-cells__title {
+  /* em 相对单位 14px*0.77=10.780px(实际) */
+  margin-top: 0.77em;
+  margin-bottom: 0.3em;
+  /* 左右单位不一致不影响适配 */
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #808080;
+  font-size: 14px;
+}
+/* .weui-cells__title + .weui-cells
+.weui-cells前一定存在__title, 兄弟关系
+只选择前面有 title 的 cells 
+*/
+.weui-cells__title + .weui-cells {
+  margin-top: 0;
+}
+/* 选中所有 cells */
+.weui-cells {
+  margin-top: 1.17647059em;
+  background: #fff;
+  line-height: 1.47058824;
+  font-size: 17px;
+  overflow: hidden;
+  position: relative;
+}
+.weui-cells:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #e5e5e5;
+  color: #e5e5e5;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  z-index: 2;
+}
+.weui-cells:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid #e5e5e5;
+  color: #e5e5e5;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  z-index: 2;
+}
+.weui-cell {
+  padding: 10px 15px;
+  position: relative;
+  /* 1.0版本 */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  /* 旧版兼容 */
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+/* 在cell 之间加入分割线 */
+/* 只有前面存在兄弟节点 cell 的 cell 才插入 */
+.weui-cell + .weui-cell:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #e5e5e5;
+  color: #e5e5e5;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  z-index: 2;
+}
+.weui-cell .weui-cell__bd {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+.weui-label {
+  display: block;
+  /* 超出 105px 截断 */
+  width: 105px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.weui-input {
+  width: 100%;
+  /* 清理边框 */
+  border: 0;
+  /* 清除交互时出现的轮廓 */
+  outline: 0;
+  -webkit-appearance: none;
+  background: transparent;
+  font-size: inherit;
+  color: inherit;
+  height: 1.47058824em;
+  line-height: 1.47058824em;
+}
+.weui-cell__ft {
+  text-align: right;
+  color: #808080;
+}
+/* 元素没了但功能还在 */
+.weui-check {
+  position: absolute;
+  left: -9999em;
+}
+ /* 属性选择器 */
+ /* 表示类名中包含 weui-icon- 的全选中 */
+[class^="weui-icon-"],
+[class*="weui-icon-"] {
+  display: inline-block;
+  vertical-align: middle;
+  /* 综合写法 14像素 行高为 1 font-family: weui */
+  font: 14px/1 "weui";
+  /* 自动选择渲染优化 */
+  text-rendering: auto;
+  /* 抗锯齿 */
+  -webkit-font-smoothing: antialiased;
+}
+[class^="weui-icon-"]:before,
+[class*="weui-icon-"]:before {
+  display: inline-block;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+/* 前面确定是选中checked状态 */
+.weui-cells_radio .weui-check:checked + .weui-icon-checked:before {
+  display: block;
+  content: '\EA08';
+  color: #09bb07;
+  font-size: 16px;
+}
+.weui-btn-area {
+  margin: 1.17647059em 15px 0.3em;
+}

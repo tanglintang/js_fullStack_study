@@ -1,0 +1,28 @@
+.weui-agree {
+    display: block;
+    padding: 0.5em 15px;
+    font-size: 13px;
+}
+
+.weui-agree__checkbox {
+    /* 清理浏览器效果 */
+    -webkit-appearance: none;
+    appearance: none;
+    /* 轮廓 */
+    outline: 0;
+    font-size: 0;
+    border: 1px solid #d1d1d1;
+    background-color: #ffffff;
+    width: 13px;
+    height: 13px;
+    position: relative;
+    top: 2px;
+}
+
+.weui-agree__text {
+    color: #808080;
+}
+
+.weui-agree a {
+    color: #586c94;
+}
