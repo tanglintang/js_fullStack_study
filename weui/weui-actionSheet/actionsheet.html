@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ActionSheet 原生组件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .weui-btn {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 14px;
+            padding-right: 14px;
+            box-sizing: border-box;
+            font-size: 18px;
+            text-align: center;
+            text-decoration: none;
+            color: #FFFFFF;
+            line-height: 2.55555556;
+            border-radius: 5px;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            overflow: hidden;
+        }
+
+        .weui-btn_default {
+            color: #000000;
+            background-color: #F8F8F8;
+        }
+
+        .btn {
+            margin-top: 100px;
+        }
+
+        .weui-mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, .6);
+            display: none;
+        }
+
+        .weui-mask-on {
+            display: block;
+        }
+
+        .weui-actionsheet {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            -webkit-transform: translate(0, 100%);
+            transform: translate(0, 100%);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            /*定义当元素不面向屏幕时是否可见*/
+            z-index: 5000;
+            background-color: #efeff4;
+            -webkit-transition: -webkit-transform .3s;
+            transition: -webkit-transform .3s;
+            transition: transform .3s;
+            transition: transform .3s, -webkit-transform .3s;
+        }
+
+        .weui-actionsheet__title {
+            position: relative;
+            height: 65px;
+            padding: 0 20px;
+            line-height: 1.4;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            text-align: center;
+            font-size: 14px;
+            color: #808080;
+            background: #FCFCFD;
+        }
+
+        .weui-actionsheet__menu {
+            background-color: #FCFCFD;
+        }
+
+        .weui-actionsheet__cell {
+            position: relative;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .weui-actionsheet__action {
+            margin-top: 6px;
+            background-color: #FCFCFD;
+        }
+
+        .weui-actionsheet_toggle {
+            -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn">
+        <a href="javascript:;" class="weui-btn weui-btn_default" id="showIOSActionSheet">iOS ActionSheet</a>
+    </div>
+
+    <div class="weui-mask"></div>
+    <!-- 操作列表 -->
+    <div class="weui-actionsheet">
+        <div class="weui-actionsheet__title">
+            <p class="weui-actionsheet__title-text">这是一个标题，可以一行或者两行</p>
+        </div>
+        <div class="weui-actionsheet__menu">
+            <div class="weui-actionsheet__cell">示例菜单</div>
+            <div class="weui-actionsheet__cell">示例菜单</div>
+            <div class="weui-actionsheet__cell">示例菜单</div>
+        </div>
+        <div class="weui-actionsheet__action">
+            <div class="weui-actionsheet__cell weui-btn__cancel">取消</div>
+        </div>
+    </div>
+    <script>
+        const mask = document.querySelector(".weui-mask");
+        const showIOSActionSheet = document.getElementById("showIOSActionSheet");
+        const anctionSheet = document.querySelector(".weui-actionsheet");
+        const cancelBtn = document.querySelector('.weui-btn__cancel')
+        showIOSActionSheet.addEventListener("click", function () {
+            anctionSheet.classList.add("weui-actionsheet_toggle");
+            mask.classList.add("weui-mask-on");
+        });
+        mask.addEventListener("click", function () {
+            mask.classList.remove("weui-mask-on");
+            anctionSheet.classList.remove("weui-actionsheet_toggle");
+        });
+        cancelBtn.addEventListener('click', function() {
+            mask.classList.remove("weui-mask-on");
+            anctionSheet.classList.remove("weui-actionsheet_toggle");
+        })
+    </script>
+</body>
+
+</html>
