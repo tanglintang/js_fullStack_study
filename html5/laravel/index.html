@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用 bootstrap3 进行简单 PC 网站开发</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./hah.css">
+</head>
+
+<body class="home-template">
+    <!-- cdn bootstrap bootcdn
+    整站开发框架
+    css 组件 js幻灯片 面包屑 手风琴 -->
+    <header class="main-header" style="background-image: url(http://image.golaravel.com/5/c9/44e1c4e50d55159c65da6a41bc07e.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>为 WEB 艺术家创造的 PHP 框架。 </h1>
+                </div>
+                <div class="col-xs-12">
+                    <a href="https://docs.golaravel.com/docs/5.6/" class="btn btn-default btn-doc" target="_blank">5.6 文档</a>
+                    <a href="https://docs.golaravel.com/docs/5.5/" class="btn btn-default btn-doc" target="_blank">5.5 文档</a>
+                    <a href="https://docs.golaravel.com/docs/5.4/" class="btn btn-default btn-doc" target="_blank">5.4 文档</a>
+                    <a href="https://docs.golaravel.com/docs/5.3/" class="btn btn-default btn-doc" target="_blank">5.3 文档</a>
+                    <a href="https://docs.golaravel.com/docs/5.2/" class="btn btn-default btn-doc" target="_blank">5.2 文档</a>
+                    <a href="https://docs.golaravel.com/docs/5.1/" class="btn btn-default btn-doc" target="_blank">5.1 文档</a>
+                    <a href="https://docs.golaravel.com/docs/5.0/" class="btn btn-default btn-doc" target="_blank">5.0 文档</a>
+                    <a href="https://docs.golaravel.com/docs/4.2/" class="btn btn-default btn-doc" target="_blank">4.2 中文文档</a>
+                    <a href="https://docs.golaravel.com/docs/4.1/" class="btn btn-default btn-doc" target="_blank">4.1 中文文档</a>
+                    <a href="https://docs.golaravel.com/docs/4.0/" class="btn btn-default btn-doc" target="_blank">4.0 中文文档</a>
+                    <a href="https://lumen.golaravel.com/docs/" class="btn btn-default btn-doc" target="_blank">Lumen 中文文档</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="main-navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="navbar-header">
+                        <span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="fa fa-bars"></i>
+                        </span>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main-menu">
+                        <ul class="menu">
+                            <li role="presentation">
+                                <a href="/" title="首页">首页</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="https://docs.golaravel.com/docs/" title="Laravel 中文文档" target="_blank" onclick="_hmt.push(['_trackEvent', 'main-navigation', 'click', 'Laravel 中文文档'])">Laravel 中文文档</a>
+                            </li>
+                            <li role="presentation" style="font-weight: bold">
+                                <a href="https://pkg.phpcomposer.com/" title="Packagist 中国镜像" target="_blank" onclick="_hmt.push(['_trackEvent', 'main-navigation', 'click', 'Packagist 中国镜像'])">Packagist 中国镜像</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="http://www.phpcomposer.com/" title="Composer 中文文档" target="_blank" onclick="_hmt.push(['_trackEvent', 'main-navigation', 'click', 'Composer 中文文档'])">Composer 中文文档</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="https://php.golaravel.com/" title="PHP 中文手册" target="_blank" onclick="_hmt.push(['_trackEvent', 'main-navigation', 'click', 'PHP 中文手册'])">PHP 中文手册</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="https://phptherightway.golaravel.com/" title="PHP 编程之道" target="_blank" onclick="_hmt.push(['_trackEvent', 'main-navigation', 'click', 'PHP 编程之道'])">PHP 编程之道</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="http://wenda.golaravel.com/" title="问答社区" target="_blank" onclick="_hmt.push(['_trackEvent', 'main-navigation', 'click', '问答社区'])">问答社区</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content">
+                    <article class="post">
+                        <div class="post-head">
+                            <h1 class="post-title">
+                                <a href="https://www.golaravel.com/post/laravel-5-6-is-now-released">Laravel 5.6 版本正式发布</a>
+                            </h1>
+                            <div class="post-meta">
+                                <span class="author">作者：
+                                    <a href="https://www.bootcss.com/" target="_blank">王赛</a>
+                                </span> •
+                                <time class="post-date" datetime="February 8, 2018 2:33 AM" title="February 8, 2018 2:33 AM">2018年02月08日</time>
+                            </div>
+                        </div>
+                        <div class="featured-media">
+                            <a href="https://www.golaravel.com/post/laravel-5-6-is-now-released/">
+                                <img src="https://www.golaravel.com/assets/images/laravel-5.6.png" alt="Laravel 5.6 版本正式发布">
+                            </a>
+                        </div>
+                        <div class="post-content">
+                            <p></p>
+                            <p>Laravel 5.6 是继 5.5 之后 Laravel 官方发布的最新版本。此版本包含众多新特性，接下来我们说一说几个重要的特性。如需查看完成的发布日志，请点击
+                                <a href="https://github.com/laravel/framework/blob/5.6/CHANGELOG-5.6.md">这里</a>。</p>
+                            <p></p>
+                        </div>
+                        <div class="post-permalink">
+                            <a href="https://www.golaravel.com/post/laravel-5-6-is-now-released/" class="btn btn-default">阅读全文</a>
+                        </div>
+                        <footer class="post-footer clearfix"></footer>
+                    </article>
+                </main>
+                <aside class="col-md-4 sidebar">
+                    <div class="widget">
+                        <h4 class="title">社区</h4>
+                        <div class="content community">
+                            <p>QQ群：462694081</p>
+                            <p>
+                                <a href="http://wenda.golaravel.com/" title="Laravel中文网问答社区" target="_blank" onclick="_hmt.push(['_trackEvent', 'big-button', 'click', '问答社区'])">
+                                    <i class="fa fa-comments"></i> 问答社区</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h4 class="title">下载</h4>
+                        <div class="content download">
+                            <a href="/download/" class="btn btn-default btn-block" onclick="_hmt.push(['_trackEvent', 'big-button', 'click', '下载 Laravel &amp; Lumen'])">Laravel &amp; Lumen 一键安装包下载</a>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h4 class="title">文档</h4>
+                        <a href="https://docs.golaravel.com/docs/5.6/" class="btn btn-default btn-block" target="_blank">5.6 文档</a>
+                        <a href="https://docs.golaravel.com/docs/5.5/" class="btn btn-default btn-block" target="_blank">5.5 文档</a>
+                        <a href="https://docs.golaravel.com/docs/5.4/" class="btn btn-default btn-block" target="_blank">5.4 文档</a>
+                        <a href="https://docs.golaravel.com/docs/5.3/" class="btn btn-default btn-block" target="_blank">5.3 文档</a>
+                        <a href="https://docs.golaravel.com/docs/5.2/" class="btn btn-default btn-block" target="_blank">5.2 文档</a>
+                        <a href="https://docs.golaravel.com/docs/5.1/" class="btn btn-default btn-block" target="_blank">5.1 文档</a>
+                        <a href="https://docs.golaravel.com/docs/5.0/" class="btn btn-default btn-block" target="_blank">5.0 文档</a>
+                        <a href="https://docs.golaravel.com/docs/4.2/" class="btn btn-default btn-block" target="_blank">4.2 中文文档</a>
+                        <a href="https://docs.golaravel.com/docs/4.1/" class="btn btn-default btn-block" target="_blank">4.1 中文文档</a>
+                        <a href="https://docs.golaravel.com/docs/4.0/" class="btn btn-default btn-block" target="_blank">4.0 中文文档</a>
+                        <a href="https://lumen.golaravel.com/docs/" class="btn btn-default btn-block" target="_blank">Lumen 中文文档</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>

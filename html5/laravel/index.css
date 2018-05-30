@@ -1,0 +1,69 @@
+/*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+body, html {
+    color: #505050;
+    line-height: 1.75em;
+    background: #ebebeb;
+    position: relative;
+    font-family: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei","Microsoft YaHei UI","Microsoft YaHei",sans-serif;
+}
+
+.main-header {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+    color: #fff;
+    font-weight: 400;
+}
+
+.col-md-12 {
+    width: 100%;
+    float: left;
+
+}
+
+.btn-doc {
+    position: relative;
+    
+}
+
+.btn {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.main-navigation {
+    text-align: center;
+    background: #fff;
+    border-top: 1px solid #ebebeb;
+    margin-bottom: 35px;
+    border-bottom: 2px solid #e1e1e1;
+}.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+} */
