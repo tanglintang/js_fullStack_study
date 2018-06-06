@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .par {
+            border: 5px solid #fcc;
+            width: 300px;
+            /* 不是超出隐藏，而是创造一个 BFC 环境 */
+            overflow: hidden;
+        }
+        .child {
+            border: 5px solid #f66;
+            width: 100px;
+            height: 100px;
+            /* 脱离了文档流 */
+            float: left;
+        }
+    </style>
+</head>
+<!-- 
+    网页的定位(大概念的)：
+        文档流 浮动 定位 flex display: tabel
+    浮动之后脱离了文档流
+        overflow: hidden; 
+        创建 BFC 
+    BFC 的高度，浮动元素也参与计算，
+-->
+<body>
+    <div class="par">
+        <div class="child"></div>
+        <div class="child"></div>
+    </div>
+</body>
+</html>

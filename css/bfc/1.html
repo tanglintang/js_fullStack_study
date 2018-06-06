@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>margin 重叠</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        p {
+            color: #ff5555;
+            background-color: #ffcccc;
+            width: 200px;
+            line-height: 100px;
+            text-align: center;
+            margin: 100px;
+            /* display: inline-block; */
+        }
+        .wrap {
+            overflow: hidden;
+        }
+        .wrap p {
+            margin-top: 150px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 文档 块block 在页面上占据自己的位置 -->
+    <p>123</p>
+    <!-- 根元素会创造一个 bfc 环境
+        原来两个p都在根body下，具有相同的上下文环境
+        第二个p创建一个新的bfc环境 与外部bfc 隔离开来
+        .wrap 并没有能力创建新的 bfc
+        新的bfc设置 overflow: hidden(不为 visiable) 创造一个新的空间
+        外面的环境无法影响，并在内部重新进行block formating 布局和定位
+        核心是新的bfc 给出了新的不受外界影响的块级格式化环境
+
+        定位 position 
+        广义的定位 
+            块级定位 垂直方向上
+            行内    水平方向
+            float 浮动 在一行的左右两边
+            弹性布局 
+            position
+        bfc 重建一个上下文环境
+    -->
+    <!-- 创建一个 bfc 环境 -->
+    <div class="wrap">
+        <p>qwe</p>
+    </div>
+
+</body>
+</html>
