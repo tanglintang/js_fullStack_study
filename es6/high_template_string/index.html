@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 字符串模板
+        // 深层次: js 数据与 html 完美结合
+        // 转化为字符串
+        // 但会带有 ，分隔
+        // 使用 join 空格分隔避免 逗号
+
+        // let arr = [{value: 1}, {value: 2}]  
+        // let message = `<ul>
+        //     ${arr.map(item => {
+        //         return `<li>
+        //             ${item.value}    
+        //         </li>`
+        //     }).join('')}
+        // </ul>`
+        // console.log(message)
+            
+        let x = 'Dasiy', y = 'Kevin';
+
+        // 欢迎的模板
+        let message = oneline`
+            Hi,
+            ${x},
+            i am
+            ${y}
+        `
+        // 让多行文本成为一行？
+        // trim() 只能去除首尾空格
+        // 字符串模板提供 标签模板
+        // 添加一个标签函数
+        function oneline(template, ...expressions) {
+            // 拆分 模板
+            // console.log(template)
+            // 变量
+            // console.log(expressions)
+
+            // es6 函数式函数 map 新生成一个数组
+            // reduce 将数组减员 遍历数组的每一项 
+            // 跟前一项进行操作，最后数组只有一项
+            // 经常用于数组求和 reduce.js
+
+            let result = template.reduce((prev, next, i) => {
+                let expression = expressions[i - 1]
+                console.log(prev, next, i, expression)
+                return prev + expression + next 
+            })
+            
+            return result
+        }
+        // 多行字符串如何去除空格删除换行
+
+        console.log(message.replace(/\s+/g, ' ').trim())
+
+    </script>
+</body>
+</html>
