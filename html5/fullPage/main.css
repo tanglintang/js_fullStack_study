@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    overflow: hidden;
+    height: 100%;
+}
+#pureFullPage {
+    transition: all 1s ease;
+    position: relative;
+    top: 0;
+}
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.page:nth-child(1) {
+    background-color: rgb(240, 117, 117);
+}
+.page:nth-child(2) {
+    background-color: rgb(58, 209, 83);
+}
+.page:nth-child(3) {
+    background-color: rgb(72, 174, 241);
+}
+
+.page p {
+    font-size: 88px;
+}

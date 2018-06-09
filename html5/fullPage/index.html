@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scale=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>全屏滚动插件</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="pages">
+        <div class="page page1"><p>page1</p></div>
+        <div class="page page2"><p>page2</p></div>
+        <div class="page page3"><p>page3</p></div>
+    </div>
+</body>
+<script>
+    window.onload = function() {
+        const p = document.querySelector('.page1')
+        window.addEventListener('mousewheel', function(e) {
+            e = e || window.event;  
+                if (e.wheelDelta) {  //第一步：先判断浏览器IE，谷歌滑轮事件               
+                    if (e.wheelDelta > 0) { //当滑轮向上滚动时  
+                        console.log("滑轮向上滚动")
+                        console.log(p.offsetHeight*2)
+                        // p.style.top += 100%
+                    }  
+                    if (e.wheelDelta < 0) { //当滑轮向下滚动时  
+                        console.log("滑轮向下滚动");  
+
+                    }  
+                } 
+                // else if (e.detail) {  //Firefox滑轮事件  
+                //     if (e.detail> 0) { //当滑轮向上滚动时  
+                //         console.log("滑轮向上滚动");  
+                //     }  
+                //     if (e.detail< 0) { //当滑轮向下滚动时  
+                //         console.log("滑轮向下滚动");  
+                //     }  
+                // }  
+        }, false)
+    }
+</script>
+</html>
