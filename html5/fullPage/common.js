@@ -86,7 +86,7 @@ class PureFullPage {
         this.currentPosition -= this.clientHight
         
         if (this.currentPosition < -2*this.clientHight ) {
-            this.currentPosition = -2*this.clientHight
+            return
         }
         this.container.style.top = `${this.currentPosition}px`
         
