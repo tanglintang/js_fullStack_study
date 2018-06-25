@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>发布订阅者模式</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 最简单的 pub-sub => 事件监听
+        // 发布者 事件
+        // 订阅者 回调函数
+        document.body.addEventListener('click', function() {
+            alert('1')
+        }, false)    
+    </script>
+</body>
+</html>
