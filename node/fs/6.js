@@ -13,3 +13,5 @@ writeStream.write('me me me')
 writeStream.write('on on on')
 
 writeStream.end('')
+
+// 会替换掉源文件内容
