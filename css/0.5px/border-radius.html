@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .round {
+            margin-top: 50px;
+            position: relative;
+            font-size: 16px;
+        }
+
+        .round .round-div:before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            /* bottom: -50%; */
+            left: -50%;
+            /* right: -50%; */
+            width: 200%;
+            height: 200%;
+            /* -webkit-transform: scale(0.5); */
+            transform: scale(0.5);
+            /* height: 100%; */
+            /* width: 100%; */
+            border: solid 1px red;
+            border-radius: 22px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="round">
+        <div class="round-div">
+            HELLO WORLD
+        </div>
+    </div>
+
+</body>
+
+</html>
