@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+    <div class="wrapper">
+        <ul class="nav">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./fluffy.html">Fluffy</a></li>
+            <li><a href="./socks.html">Socks</a></li>
+            <li><a href="./whiskers.html">Whiskers</a></li>
+        </ul>
+        <p class="content">
+            Welcome to Kittens! Home of Fluffy, Socks, and Whiskers. If you're not suffering from a cute overdose within the hour, then you really are a heartless bugger! Now lets look at some cats!
+        </p>
+        <div class="media">
+            <img src="http://www.ichong123.com/uploads/2014/08/m1.jpg" />
+        </div>
+    </div>
+
+<script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+
+<script>
+    // 只有一个页面，但本质还是多个，只是每个页面变成一个状态
+    // 我们需要在 SPA 为状态生成一个 history
+    // history 路由的堆栈 router 状态对应的数据
+    $(function() {
+        // 冒泡事件注册，不遗漏
+        $(document).on('click', 'a', (event) => {
+            event.preventDefault()
+            const url = event.currentTarget.href
+            
+            console.log(url)
+            // $.get(href, function(data, status) {
+            //     console.log(data, status)
+            // })
+            $.ajax(url).done((data) => {
+                // console.log(data)
+                // $() 将直接转为 html 节点
+                // console.log($(data).find('p').html())
+                let state = createState($(data))
+                // console.log(state)
+                displayContent(state)
+
+                // history api 压栈 放入 title、路径 和 数据
+                history.pushState(state, state.title, url)
+            })
+        })
+        // 获取数据状态
+        function createState(node) {
+            // return node.find('p').html()
+            return {
+                content: node.find('p').html(),
+                src: node.find('img').attr('src'),
+                title: node.find('title').text()
+            }
+        }
+        // 更新内容
+        function displayContent(state) {
+            $('.content').text(state.content)
+            $('img').attr('src', state.src)
+        }
+        // 点击后退按钮(或者在JavaScript中调用history.back()方法)时触发
+        window.onpopstate = (event) => {
+            if (event.state) {
+                // 内容同步更新
+                displayContent(event.state)
+            }
+        }
+    })
+</script>
+</body>
+</html>
