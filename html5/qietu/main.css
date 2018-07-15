@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main .header {
+    width: 100vw;
+    height: 2.9866667rem;
+    box-sizing: border-box;
+    background: url(./images/banner_02.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+}
+.main .header .cover {
+    width: 100vw;
+    height: 0.7466667rem;
+    line-height: 0.7466667rem;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 0.293333rem;
+    color: rgb(240, 102, 84);
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+
+.main .header .left .avatar {
+    width: 1.0666667rem;
+    height: 1.06666667rem;
+    background: url(./images/avatar_03.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.53333333rem;
+    left: 0.6133333rem;
+    border: 0.08rem solid rgb(83, 68, 174);
+}
+
+.main .header .left .name {
+    width: 1.466667rem;
+    height: 0.24rem;
+    position: absolute;
+    font-size: 0.24rem;
+    color: #fff;
+    left: 0.56rem;
+    bottom: 0.966667rem;
+    letter-spacing: 0.0533rem;
+    white-space: nowrap;
+}
+
+.main .header .center {
+    width: 5.1466667rem;
+    height: 2.213333rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    top: 0.7466rem;
+}
+
+.main .header .center .title {
+    font-size: 0.48rem;
+    height: 0.8266667rem;
+    letter-spacing: 0.1866667rem;
+    white-space: nowrap;
+ }
+
+.main .header .center .unlock-status {
+    font-size: 0.32rem;
+    letter-spacing: 0.08rem;
+}
+
+.main .header .center .unlock-status .unlock-num {
+    color: rgb(221, 61, 83);
+}
+
+.main .header .right {
+    position: absolute;
+    right: 0;
+    top: 0.722222rem;
+    height: 0.96rem;
+    width: 1.12rem;
+    text-align: center;
+    background-color: rgb(240, 109, 84);
+    border-top-left-radius: 0.96rem;
+    border-bottom-left-radius: 0.96rem;
+    box-shadow: 0 0.1rem rgb(205, 103, 87), 
+    0 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+.main .header .right a {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.773333rem;
+    position: absolute;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.32rem;
+    letter-spacing: 0.08rem;
+    right: 0;
+    top: 0.06rem;
+}
