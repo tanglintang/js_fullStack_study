@@ -4,7 +4,12 @@
 ```js
 {
     // 预处理集合 建议 env
-  "presets": ["env"],
+  "presets": ["env",
+    "targets": {
+        // 1% 市场占有率 最后两个版本 ie9以上
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+      }
+  ],
   "plugins": []
 }
 ```

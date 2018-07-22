@@ -17,3 +17,14 @@
     补全前缀 / css 变量
 
 - stylus / scss / less
+
+- 自动执行 npm-run-all
+`$ yarn add npm-run-all -D`
+```json
+package.json
+  "scripts": {
+    "lint:js": "eslint *.js",
+    "mocha": "mocha tests/",
+    "test": "npm-runl-all --parallel lint:js mocha"    // 执行所有
+  },
+```

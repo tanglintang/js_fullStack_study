@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            width: 100%;
+            height: 60px;
+            background-color: rgb(240, 79, 79);
+        }
+        .container {
+            padding: 0 200px;
+        }
+        .container div {
+            height: 200px;
+            position: relative;
+            float: left;
+        }
+        .middle {
+            width: 100%;
+            background-color: rgb(228, 255, 72);
+        }
+        .left {
+            width: 200px;
+            background-color: rgb(56, 255, 106);
+            /* container的 100% 所以会上去 */
+            margin-left: -100%;
+            /* 右边缘设置在其包含元素右边缘向左 200px 位置 */
+            right: 200px;
+        }
+        .right {
+            width: 200px;
+            background-color: rgb(56, 215, 255);
+            /* right 盒子的右边缘 在其父级 -200px 的位置 */
+            margin-right: -200px;
+        }
+        footer {
+            clear: both;
+            width: 100%;
+            height: 60px;
+            background-color: rgb(208, 43, 241);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h3>Header Content</h3>
+    </header>
+    <div class="container">
+        <div class="middle">
+            <h3>中间弹性区</h3>
+        </div>
+        <div class="left">
+            <h3>左边栏</h3>
+        </div>
+        <div class="right">
+            <h3>右边栏</h3>
+        </div>
+    </div>
+    <footer>
+        <h3>Footer Content</h3>
+    </footer>
+</body>
+</html>
