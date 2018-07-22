@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .header {
+            width: 100%;
+            height: 60px;
+            background-color: rgb(240, 79, 79);
+        }
+
+        .container {
+            overflow: hidden;
+        }
+
+        .middle {
+            width: 100%;
+            float: left;
+        }
+
+        .inner-middle {
+            background-color: rgb(228, 255, 72);
+            width: 100%;
+            height: 200px;
+        }
+
+        .left {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-color: rgb(56, 255, 106);
+            margin-left: -100%;
+        }
+
+        .right {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-color: rgb(56, 215, 255);
+            /* right 盒子的右边缘 在其父级 -200px 的位置 */
+            margin-left: -200px;
+        }
+
+        .footer {
+            width: 100%;
+            height: 60px;
+            background-color: rgb(208, 43, 241);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="container">
+        <div class="middle">
+            <div class="inner-middle"></div>
+        </div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div class="footer"></div>
+</body>
+
+</html>
