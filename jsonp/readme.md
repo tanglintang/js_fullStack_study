@@ -53,3 +53,64 @@ if (callback) {
 ```
 
 ## 手写 ajax
+1. 创建 xhr 对象
+```js
+var xhr = null
+// 兼容ie6 XMLHttpRequest 现代浏览器 
+if (window.XMLHttpRequest) {
+    xhr = new XMLHttpRequest()
+} else {
+    xhr = new ActiveXObject('Microsoft.XMLHTTP')
+}
+```
+2. 链接服务器
+```js
+// 请求方式，请求路径，是否异步
+xhr.open('GET/POST', url, true)
+```
+3. 发送请求
+```js
+// 设置请求头，可无
+xhr.setRequestHeader(
+    'Content-Type', 'application/x-www-form-urlencoded;charset=UTF8'
+)
+// 发送请求
+xhr.send()
+```
+4. 接收返回
+```js
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+        var status = xhr.status
+        if (status >= 200 && status <= 300) {
+            // 响应文本 responseText
+            var response = JSON.parse(xhr.responseText)
+            // 成功回调
+            params.success && params.success(response)
+        }
+    } else {
+        // 失败回调
+        params.error && params.error(status)
+    }
+}
+```
+**readyState**
+> 浏览器和服务器交互状态
+
+    0: 未初始化，还没有调用 open() 方法
+    1: 载入，已调用 send() 方法，正在发送请求
+    2: 载入完成， send() 方法完成，已接收到全部响应内容
+    3：解析响应内容
+    4: 解析完成
+**xhr.status**
+
+    200: OK，访问正常
+    301: Moved Permanently，永久移动
+    302: Move temporarily，暂时移动
+    304: Not Modified，未修改
+    307: Temporary Redirect，暂时重定向
+    401: Unauthorized，未授权
+    403: Forbidden，禁止访问
+    404: Not Found，未发现指定网址
+    500: Internal Server Error，服务器发生错误
+    
