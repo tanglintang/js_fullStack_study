@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ajax (params = {}) {
+            params.data = params.data || {}
+
+            var json = params.jsonp ? jsonp(params) : json(params)
+
+            function jsonp (params) {}
+
+            function json (params) {
+                params.type = (params.type || 'GET').toUpperCase()
+                params.data = formatParams(params.data)
+
+                var xhr = null
+                if (window.XMLHttpRequest) {
+                    xhr = new XMLHttpRequest()
+                } else {
+                    xhr = new ActiveXObject('Microsoft.XMLHTTP')
+                }
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+                        var status = xhr.status
+                        if (status >= 200 && status <= 300) {
+                            var response = JSON.parse(xhr.responseText)
+                            params.success && params.success(response)
+                        }
+                    } else {
+                        params.error && params.error(status)
+                    }
+                }
+
+                if (params.type == 'GET') {
+                    xhr.open(params.type, params.url + '?' + params.data, true)
+                    xhr.send(null)
+                } else {
+                    xhr.open(params.type, params.url, true)
+                    xhr.setRequestHeader(
+                        'Content-Type', 'application/x-www-form-urlencoded;charset=UTF8'
+                    )
+                    xhr.send(params.data)
+                }
+            }
+            
+            function formatParams (data) {
+                var arr = []
+                for (const name in data) {
+                    arr.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]))
+                }
+                // 同一个 ajax 请求，浏览器会缓存
+                arr.push('v=' + random())
+                return arr.join('&')
+            }
+
+            function random () {
+                return Math.floor(Math.random()*1000+500)
+            }
+        }
+
+        ajax({
+            url: '/data.json',
+            data: {
+                name: 'tl'
+            },
+            success: data => {
+                console.log(data)
+            },
+            error: err => {
+                console.log(err)
+            }
+        })
+    </script>
+    <!-- 改造一下后端接口，实现 jsonp (json with padding)
+    给返回的数据 
+    把跨域服务器写成 调用本地的函数
+    使用回调数据 callback(data) -->
+    <script>
+        function callback (data) {
+            console.log(data)
+        }
+    </script>
+    <!-- script 标签可以访问外部跨域脚本或地址 -->
+    <script src="http://localhost:3000/api?jsonpcallback=callback"></script>
+</body>
+</html>

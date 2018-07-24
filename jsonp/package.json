@@ -1,0 +1,19 @@
+{
+  "name": "jsonp",
+  "version": "1.0.0",
+  "description": "跨域 ：跨域名、端口、协议",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.5.2",
+    "koa-router": "^7.4.0"
+  }
+}
