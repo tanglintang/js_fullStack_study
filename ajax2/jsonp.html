@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="input" />
+    <ul id="ul">
+        
+    </ul>    
+    <script>
+        window.onload = function () {
+            const input = document.querySelector('#input')
+            const ul = document.querySelector('#ul')
+
+            input.oninput = function () {
+                const script = document.createElement('script')
+
+                script.src = `https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${input.value}&cb=show`
+
+                document.head.appendChild(script)
+            }
+        }
+    </script>
+
+    <script>
+        function show (data) {
+            const ul = document.querySelector('#ul')
+            ul.innerHTML = ''
+            // console.log(data.s)
+            data.s.forEach(item => {
+                let li = document.createElement('li')
+                li.innerHTML = item
+                ul.appendChild(li)
+            })
+        }
+    </script>
+    <!-- <script src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=123&cb=show"></script> -->
+</body>
+</html>

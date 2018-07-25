@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id="file" />
+    <input type="button" value="click" id="btn">
+    <script>
+        window.onload = function () {
+            var btn = document.querySelector('#btn')
+            var file = document.querySelector('#file')
+
+            btn.addEventListener('click', function () {
+                var formData = new FormData()
+                // formData.set('a', 12)
+                // formData.set('b', 6)
+                // formData.append('a', 6)
+                formData.set('file', file)
+
+                var xhr = new XMLHttpRequest()
+
+                // console.log(xhr.upload)
+                xhr.upload.onload = function () {
+                    console.log('上传完成')
+                }
+                xhr.upload.onprogress = function (ev) {
+                    console.log(ev.loaded + '/' + ev.total)
+                }
+
+
+                xhr.open('post', './a.php', true)
+                xhr.send(formData)
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+                        if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+                            alert(xhr.responseText)
+                        } else {
+                            alert('error')
+                        }
+                    }
+                }
+            }, false)
+        }
+    </script>
+</body>
+</html>
