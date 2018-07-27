@@ -15,7 +15,27 @@
 
             var json = params.jsonp ? jsonp(params) : json(params)
 
-            function jsonp(params) {}
+            function jsonp(params) {
+                var callbackName = params.jsonp
+                var head = document.getElementsByTagName('head')[0]
+                params.data['jsonpcallback'] = callbackName
+
+                var data = formatParams(params.data)
+
+                var script = document.createElement('script')
+                head.appendChild(script)
+
+                window[callbackName] = function (json) {
+                    console.log(json)
+                    head.removeChild(script)
+                    window[callbackName] = null
+
+                    params.success && params.success(json)
+                }
+
+                script.src = params.url + '?' + data
+                console.log(script.src)
+            }
 
             function json(params) {
                 params.type = (params.type || 'GET').toUpperCase()
@@ -67,11 +87,36 @@
             }
         }
 
+        // ajax({
+        //     url: '/data.json',
+        //     data: {
+        //         name: 'tl'
+        //     },
+        //     success: data => {
+        //         console.log(data)
+        //     },
+        //     error: err => {
+        //         console.log(err)
+        //     }
+        // })
+    </script>
+    <!-- 改造一下后端接口，实现 jsonp (json with padding)
+    给返回的数据 
+    把跨域服务器写成 调用本地的函数
+    使用回调数据 callback(data) -->
+    <!-- <script>
+        function callback(data) {
+            console.log(data)
+        }
+    </script> -->
+    <!-- script 标签可以访问外部跨域脚本或地址 -->
+    <!-- <script src="http://localhost:3000/api?jsonpcallback=callback"></script> -->
+    <!-- 封装为 function jsonp() -->
+
+    <script>
         ajax({
-            url: '/data.json',
-            data: {
-                name: 'tl'
-            },
+            jsonp: 'jsonpcallback',
+            url: 'http://localhost:3000/api',
             success: data => {
                 console.log(data)
             },
@@ -80,17 +125,6 @@
             }
         })
     </script>
-    <!-- 改造一下后端接口，实现 jsonp (json with padding)
-    给返回的数据 
-    把跨域服务器写成 调用本地的函数
-    使用回调数据 callback(data) -->
-    <script>
-        function callback(data) {
-            console.log(data)
-        }
-    </script>
-    <!-- script 标签可以访问外部跨域脚本或地址 -->
-    <script src="http://localhost:3000/api?jsonpcallback=callback"></script>
 </body>
 
 </html>
