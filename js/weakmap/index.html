@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="element"></div>
+    <a href="javascript:;" onclick="getData()">获取数据</a>
+    <script>
+        const element = document.querySelector('.element')
+
+        const wm = new WeakMap()
+        // 给结点对象添加数据项 属性
+        wm.set(element, 20)
+
+        function getData () {
+            // alert(element.getAttribute('data-index'))
+            alert(wm.get(element))
+        }
+    </script>
+</body>
+</html>
