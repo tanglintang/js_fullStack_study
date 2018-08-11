@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Roboto, Arial, PingFang SC, Hiragino Sans GB, Microsoft Yahei, Microsoft Jhenghei, sans-serif;
+    color: #333;
+    box-sizing: border-box;
+    background: url(https://www.lambda.im/img/universe-bg22f4407ea20f2049aaf44407e8024ed0.jpg) no-repeat;
+    width: 100%;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration-line: none;
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 90px;
+}
+.container .navbar {
+    display: flex;
+    float: right;
+    margin-left: 45px;
+    margin-top: 19px;
+}
+.container .nav-right {
+    float: right;
+}
+
+.container .navbar .nav-item {
+    padding: 16px 26px;
+    border-top: 3px solid;
+    border-color: transparent;
+}
+
+.container .navbar .nav-item a {
+    color: #fff;
+    opacity: 1;
+    font-size: 14px;
+}
+
+.container .navbar-toggle-btn {
+    position: absolute;
+    z-index: 10;
+    right: 15px;
+    top: 10px;
+    padding: 10px;
+    display: none;
+}
+
+.container .navbar-toggle-btn .bar {
+    background-color: #fff;
+    margin-top: 4px;
+    display: block;
+    width: 22px;
+    height: 3px;
+    border-radius: 1px;
+}
+
+.mobile-navbar .nav-item {
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255,255,255,.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: none;
+}
+
+.mobile-navbar .nav-item li {
+    padding: 10px 0;
+}
+
+.mobile-navbar .nav-item li a {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+    .container .navbar .nav-item a {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container .navbar .nav-item {
+        padding: 18px 10px;
+    }
+}
+
+@media (max-width: 768px), handheld and (orientation: landscape) {
+    .container .navbar {
+        display: none;
+    }
+    .container .navbar-toggle-btn {
+        display: block;
+    }
+    .mobile-navbar {
+        height: 667px;
+        display: block;
+        position: absolute;
+        width: 100%;
+        margin-left: -15px;
+        margin-right: -15px;
+        background-color: rgba(0, 0, 0, 0.8);
+        text-align: center;
+        padding-top: 60px;
+    }
+    .mobile-navbar .nav-item {
+        display: block;
+    }
+}

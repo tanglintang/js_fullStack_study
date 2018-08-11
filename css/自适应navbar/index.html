@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>navbar</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar nav-right">
+            <div class="nav-item">
+                <a href="javascript:;">
+                    APPLICATION SCENARIOS
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="javascript:;">
+                    WORKING PRINCIPLE
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="javascript:;">
+                    ECOSYSTEM
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="javascript:;">
+                    ROADMAP
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="mailto:info@lambda.im">
+                    CONTACT US
+                </a>
+            </div>
+        </div>
+        <div class="navbar-toggle-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="mobile-navbar" style="height: 900px; display: none;">
+            <div class="nav-item active" id="products" style="border-top: 1px solid rgba(255,255,255,.2)">
+                <ul>
+                    <li>
+                        <a href="javascript:;">APPLICATION SCENARIOS</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">WORKING PRINCIPLE</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">ECOSYSTEM</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">ROADMAP</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">CONTACT US</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        const btn = document.querySelector('.navbar-toggle-btn')
+        const mNavBar = document.querySelector('.mobile-navbar')
+        btn.addEventListener('click', function() {
+            const status = mNavBar.style.display
+            mNavBar.style.display = status === 'none' ? 'block' : 'none'
+        }, false)
+    </script>
+</body>
+
+</html>
