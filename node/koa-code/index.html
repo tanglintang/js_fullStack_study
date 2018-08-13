@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Emitter</title>
+</head>
+
+<body>
+  <!-- js 是事件驱动的语言 -->
+  <!-- 自定义事件 -->
+  <!-- Vue 的 $emit() -->
+  <!-- 订阅发布者模式 -->
+  <script>
+    function Emitter () {
+      this.events = {}
+    }
+    Emitter.prototype.on = function (type, cb) {
+      var events = this.events
+      events = events[type] = events[type] || []
+      events.push(cb)
+      return this
+    }
+    Emitter.prototype.emit = function(type) {
+      var args = [].slice.call(arguments, 1)
+      var cbs = this.events[type]
+      // cb = cbs ? cbs .shift() 弹出第一个 循环
+      while (cb = cbs && cbs.shift()) {
+        // 依次执行 cb 类似于 中间件 
+        cb.apply(this, args)
+      }
+    }
+
+    var emitter = new Emitter()
+    emitter.on('customEvent', function() {
+      alert(1)
+    }).on('customEvent', function() {
+      alert(2)
+    })
+
+    console.log(emitter.events)
+
+    emitter.emit('customEvent', 'ooooooooooooo')
+
+  </script>
+</body>
+</html>
