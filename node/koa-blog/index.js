@@ -20,6 +20,7 @@ const sessionMysqlConfig = {
     host: config.database.HOST
 }
 // 启用 session
+    // 生成一个唯一 的 session_id 并发送回客户端 保存在 cookie 中
 app.use(session({
     key: 'USER_SID',
     store: new MysqlStore(sessionMysqlConfig)
@@ -50,6 +51,8 @@ app.use(bodyParser({
 // 启用路由
 app.use(require('./routes/posts').routes())
 app.use(require('./routes/signup').routes())
+app.use(require('./routes/signin').routes())
+app.use(require('./routes/signout').routes())
 
 app.listen(config.port)
 console.log(`listenin on port ${ config.port }`)

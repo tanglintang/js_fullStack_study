@@ -17,6 +17,7 @@ function query (sql, values) {
             if (err) {
                 reject(err)
             } else {
+                console.log(sql)
                 // 数据库查询
                 connection.query(sql, values, (err, rows) => {
                     if (err) {
@@ -86,5 +87,16 @@ exports.findDataByName = name => {
 
 exports.insertData = value => {
     let _sql = `insert into users set name=?, pass=?, avatar=?, moment=?;`
+    return query(_sql, value)
+}
+
+exports.findUserData = (name) => {
+    let _sql = `select * from users where name="${name}";`
+    return query(_sql)
+}
+
+exports.insertPost = (value) => {
+    console.log(value)
+    let _sql = "insert into posts set name=?, title=?, content=?, md=?, uid=?, moment=?, avatar=?;"
     return query(_sql, value)
 }

@@ -1,0 +1,42 @@
+<%- include('header', {type: 'signin'}) %>
+    <div class="container">
+        <form method="post" class="form create">
+            <div>
+                <label>用户名</label>
+                <input type="text" name="name" placeholder="请输入用户名" />
+            </div>
+            <div>
+                <label>密码</label>
+                <input type="password" name="password" placeholder="请输入密码" />
+            </div>
+            <div class="submit">登录</div>
+        </form>
+    </div>
+    <script>
+        $('.submit').click(function() {
+            if ($('input[name=name]').val().trim() === '' || $('input[name=password]').val().trim() === '') {
+                fade('请输入用户名密码')
+            } else {
+                $.ajax({
+                    url: '/signin',
+                    type: 'POST',
+                    // jsuery 序列化方法
+                    data: $('.form').serialize(),
+                    dataType: 'json',
+                    cache: false,
+                    success: msg => {
+                        if (msg.code !== 200) {
+                            $('input').val('')
+                            fade('用户名或密码错误')
+                        } else {
+                            fade('登录成功')
+                            setTimeout(() => {
+                                window.location.href = '/posts'
+                            }, 1500)
+                        }
+                    }
+                })
+            }
+        })
+    </script>
+<% include footer%>
